@@ -45,10 +45,11 @@ public class EventPoint : MonoBehaviour
         InfoUIController infoUIController = FindObjectOfType<InfoUIController>();
         SceneFlag sceneFlag = SceneFlag.Instance;
 
-        if (TriggerMission == 1)
+        if (TriggerMission == 2)
         {   
-            if (!sceneFlag.NoteChecked) {
-                infoUIController.SetText("A strange door made of organic, seemingly resistant to force. ");
+            if (!sceneFlag.ItemsCollected) {
+                infoUIController.SetText("A strange door made of organic, seemingly resistant to force. " +
+                    "\nYou notice a generator nearby with two battery slots. Perhaps you can use static electricity to soften the flesh and proceed.");
                 infoUIController.SetUIActive();
 
                 sceneFlag.DoorChecked = true;
@@ -57,21 +58,22 @@ public class EventPoint : MonoBehaviour
             }
             Active = false;
         }
-        if (TriggerMission == 2)
-        {
-            infoUIController.SetText("An ancient manuscript, containing instructions on how to open the door.");
-            infoUIController.SetUIActive();
+        //if (TriggerMission == 2)
+        //{
+        //    infoUIController.SetText("An ancient manuscript, containing instructions on how to open the door.");
+        //    infoUIController.SetUIActive();
 
-            sceneFlag.NoteChecked = true;
-            MissionList.Instance.SetCurrentMissionID(TriggerMission);
-            Active = false;
-        }
+        //    sceneFlag.NoteChecked = true;
+        //    MissionList.Instance.SetCurrentMissionID(TriggerMission);
+        //    Active = false;
+        //}
     }
 
     private void SetConsecuenceByEventID()
     {
         Inventory inventory = Inventory.Instance;
         InfoUIController infoUIController = FindObjectOfType<InfoUIController>();
+        SceneFlag sceneFlag = SceneFlag.Instance;
 
         if (TriggerEvent == 0) {
             inventory.AddItem(ItemType.BATTERY);
@@ -93,8 +95,18 @@ public class EventPoint : MonoBehaviour
         {
             infoUIController.SetText("END OF LEVEL, Thank you for playing.");
             infoUIController.SetUIActive();
+            SceneFlag.Instance.TryToOpenDoor = true;
             Active = false;
         }
+
+        if (TriggerEvent == 3)
+        {
+            infoUIController.SetText("An ancient map that indicates where you can locate bateries.");
+            infoUIController.SetUIActive();
+
+            sceneFlag.NoteChecked = true;
+        }
+
 
     }
 

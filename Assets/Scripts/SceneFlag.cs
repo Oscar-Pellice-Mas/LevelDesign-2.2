@@ -7,6 +7,7 @@ public class SceneFlag : MonoBehaviour
     private bool doorChecked;
     private bool noteChecked;
     private bool itemsCollected;
+    private bool tryToOpenDoor;
 
     public static SceneFlag Instance
     {
@@ -37,6 +38,12 @@ public class SceneFlag : MonoBehaviour
     {
         get { return itemsCollected; }
         set { itemsCollected = value; }
+    }
+
+    public bool TryToOpenDoor
+    {
+        get { return tryToOpenDoor; }
+        set { tryToOpenDoor = value; }
     }
 
 

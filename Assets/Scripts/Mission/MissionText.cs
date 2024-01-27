@@ -32,31 +32,20 @@ public class MissionText : MonoBehaviour
     void Mission2() {
         Inventory inventory = Inventory.Instance;
 
-        int WiresNum = inventory.GetCountByItem(ItemType.WIRE);
         int BatteryNum = inventory.GetCountByItem(ItemType.BATTERY);
 
-        if (BatteryNum != 1)
+        if (BatteryNum != 2)
         {
-            Description.text += "\n- Battery x 1 (" + BatteryNum + ")";
+            Description.text += "\n- Battery x 2 (" + BatteryNum + ")";
         }
         else {
-            Description.text += "\n- Battery x 1 (Complete)";
+            Description.text += "\n- Battery x 2 (Complete)";
         }
 
-        if (WiresNum != 3)
-        {
-            Description.text += "\n- Wires x 3 (" + WiresNum + ")";
-        }
-        else
-        {
-            Description.text += "\n- Wires x 3 (Complete)";
-        }
-
-        if(WiresNum == 3 && BatteryNum == 1)
+        if(BatteryNum == 2)
         {
             SceneFlag.Instance.ItemsCollected = true;
             MissionList.Instance.SetCurrentMissionID(3);
-
         }
 
     }

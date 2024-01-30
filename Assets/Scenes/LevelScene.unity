@@ -28136,7 +28136,7 @@ MonoBehaviour:
   TriggerMission: -1
   TriggerEvent: 3
   Active: 1
-  EventImage: {fileID: 0}
+  EventImage: {fileID: 21300000, guid: 2d7b9de015205484491b37dba607e9e9, type: 3}
   EventAudio: {fileID: 0}
 --- !u!65 &894268802
 BoxCollider:

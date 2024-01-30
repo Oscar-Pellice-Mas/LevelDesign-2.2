@@ -5,6 +5,8 @@ using UnityEngine.Rendering;
 
 public class CameraCinematicController : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
+
     [SerializeField] private GameObject cameraGO1;
     [SerializeField] private GameObject cameraGO2;
     [SerializeField] private GameObject cameraGO3;
@@ -72,5 +74,7 @@ public class CameraCinematicController : MonoBehaviour
         yield return new WaitForSeconds(switchInterval4);
         brain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.EaseOut;
         camera4.Priority = 0;
+
+        player.SetActive(false);
     }
 }

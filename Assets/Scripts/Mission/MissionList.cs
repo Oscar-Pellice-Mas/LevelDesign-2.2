@@ -27,10 +27,10 @@ public class MissionList : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        Mission m0 = new Mission("Escape from here", "Escape from that strange organic gate.", 0);
+        Mission m0 = new Mission("Escape from here", "Escape through that strange organic gate.", 0);
         Mission m1 = new Mission("Escape from here (1)", "Find clues to open the door.", 1);
         Mission m2 = new Mission("Escape from here (2)", "Find: ", 2);
-        Mission m3 = new Mission("Escape from here (3)", "Exit from the door.", 3);
+        Mission m3 = new Mission("Escape from here (3)", "Exit through the door.", 3);
 
         missions.Add(m0);
         missions.Add(m1);

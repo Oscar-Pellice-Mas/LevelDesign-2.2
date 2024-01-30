@@ -17,10 +17,13 @@ public class EventPoint : MonoBehaviour
     Sprite EventImage;
 
     [SerializeField]
-    AudioClip EventAudio;
+    AudioSource EventAudio;
     void Start()
     {
-        
+        if(this.gameObject.GetComponent<AudioSource>() != null)
+        {
+            EventAudio = this.gameObject.GetComponent<AudioSource>();
+        }
     }
 
     // Update is called once per frame
@@ -46,6 +49,11 @@ public class EventPoint : MonoBehaviour
             if (EventImage != null)
             {
                 FindObjectOfType<InfoUIController>().SetImage(EventImage);
+            }
+
+            if (EventAudio != null)
+            {
+                EventAudio.Play();
             }
             
         }

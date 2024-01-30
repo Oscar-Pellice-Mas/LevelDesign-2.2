@@ -5,6 +5,7 @@ public class InfoUIController : MonoBehaviour
 {
     public GameObject uiPanel;
     public Text Text;
+    public Image Image;
 
     private void Update()
     {
@@ -17,11 +18,18 @@ public class InfoUIController : MonoBehaviour
     public void SetText(string text)
     {
         this.Text.text = text;
+        this.Image.sprite = null;
+        this.Image.gameObject.SetActive(false);
     }
 
     public void SetUIActive()
     {
-        Debug.Log("Active");
         uiPanel.SetActive(true);
+    }
+
+    public void SetImage(Sprite s)
+    {
+        this.Image.gameObject.SetActive(true);
+        Image.sprite = s;
     }
 }

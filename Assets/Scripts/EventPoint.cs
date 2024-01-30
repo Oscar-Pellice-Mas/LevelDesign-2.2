@@ -13,6 +13,11 @@ public class EventPoint : MonoBehaviour
     [SerializeField]
     bool Active = true;
     // Start is called before the first frame update
+    [SerializeField]
+    Sprite EventImage;
+
+    [SerializeField]
+    AudioClip EventAudio;
     void Start()
     {
         
@@ -37,8 +42,15 @@ public class EventPoint : MonoBehaviour
                 SetConsecuenceByEventID();
 
             }
+
+            if (EventImage != null)
+            {
+                FindObjectOfType<InfoUIController>().SetImage(EventImage);
+            }
             
         }
+
+
     }
 
     private void SetConsecuenceByMissionID() {
@@ -101,7 +113,7 @@ public class EventPoint : MonoBehaviour
 
         if (TriggerEvent == 3)
         {
-            infoUIController.SetText("An ancient map that indicates where you can locate bateries.");
+            infoUIController.SetText("A chest with an ancient map that indicates where you can locate bateries.");
             infoUIController.SetUIActive();
 
             sceneFlag.NoteChecked = true;
